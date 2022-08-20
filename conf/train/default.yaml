@@ -1,0 +1,72 @@
+---
+
+name : "default"
+
+# デバッグ
+debug : True
+debug_data_len : 1000
+debug_max_epoch : 200
+debug_iter : 5
+
+# checkpointから再開する場合
+check_point_start : False
+start_ckpt_path : "~/face_generation/check_point/default/lip_128128/2022:07:20_13-10-21/world_melfb_100.ckpt"
+
+# 学習したモデルのパラメータを保存するディレクトリまでのパス
+save_path : "~/face_generation/result/default/train"
+
+# check point path
+ckpt_path : "~/face_generation/check_point/default"
+ckpt_step : 10
+
+# 平均、標準偏差ディレクトリまでのパス
+lip_mean_std_path_9696_time_only : "~/dataset/lip/np_files/lip_cropped_9696_time_only/mean_std"
+
+# 口唇動画、音響特徴量ディレクトリまでのパス
+lip_pre_loaded_path_9696_time_only : "~/dataset/lip/np_files/lip_cropped_9696_time_only/train"
+
+# max_epoch
+max_epoch : 400
+
+# data augmentation
+use_time_augment : False
+time_augment_rate : 30    # (100 - rate)から(100 + rate)の範囲で再生速度を変更
+
+# dataloader
+batch_size : 16
+num_workers : 16
+
+# dropout
+gen_dropout : 0.5
+frame_disc_dropout : 0.5
+seq_disc_dropout : 0.5
+sync_disc_dropout : 0.5
+
+# optimizer
+lr_gen : 0.0001
+lr_frame_disc : 0.00001  # 0.0001
+lr_seq_disc : 0.00001
+lr_sync_disc : 0.00001
+beta_1 : 0.9
+beta_2 : 0.999
+weight_decay : 1.0e-6
+
+# scheduler
+step_size : 10
+gamma_gen : 0.98
+gamma_disc : 0.9
+
+# gradient clipping
+max_norm : 10.0
+
+# generatorを最適化するiterationの間隔
+gen_opt_step : 1
+
+# lossの重み
+l1_weight : 300   # 600
+frame_weight : 1.0
+seq_weight : 0.2  # 0.2
+sync_weight : 0.4 # 0.8
+
+# sync discriminatorに入力する系列の長さ
+crop_length : 50  # 動画のフレーム数1秒分
