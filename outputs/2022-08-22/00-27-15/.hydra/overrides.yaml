@@ -1,0 +1,5 @@
+- model=mspec80
+- train=default
+- test=default
+- wandb_conf=default
+- train.debug=False
