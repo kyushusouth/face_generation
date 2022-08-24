@@ -1,0 +1,10 @@
+.DS_Store
+*__pycache__*
+*.pyc
+check/
+check_point/
+data_check/
+outputs/
+result/
+shells/
+wandb/
